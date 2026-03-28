@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Shri Murari Jewellers | Connect With Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html, body {
+            height: 100%;
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: #fff;
+            height: 100vh;
+            max-height: -webkit-fill-available;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header Section */
+        .header-section {
+            padding: 20px 15px 15px;
+            text-align: center;
+            background: linear-gradient(135deg, #d4af37 0%, #a67c00 100%);
+            border-bottom: 4px solid #fff;
+            flex-shrink: 0;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M50,15 L60,40 L85,40 L65,55 L75,80 L50,65 L25,80 L35,55 L15,40 L40,40 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .logo-container {
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo-img-placeholder {
+            width: 200px;
+            height: 80px;
+            background: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            color: #a67c00;
+            font-family: 'Playfair Display', serif;
+            font-weight: bold;
+            font-size: 20px;
+            text-align: center;
+            line-height: 1.2;
+            padding: 10px;
+            border: 3px solid #a67c00;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .tagline {
+            font-size: 14px;
+            color: white;
+            font-style: italic;
+            margin-top: 5px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Contact Info */
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: white;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 8px 15px;
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-item i {
+            color: #d4af37;
+            font-size: 16px;
+        }
+
+        .contact-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: #d4af37;
+            text-decoration: underline;
+        }
+
+        /* Social Media Grid */
+        .social-section {
+            flex: 1;
+            padding: 20px 15px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .social-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #d4af37, #a67c00, #d4af37);
+        }
+
+        .social-title {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: #d4af37;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+            flex-shrink: 0;
+        }
+
+        .social-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            flex: 1;
+        }
+
+        .social-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(212, 175, 55, 0.1);
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 110px;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+
+        .social-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(166, 124, 0, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .social-card:hover, .social-card:active {
+            transform: translateY(-5px);
+            border-color: rgba(212, 175, 55, 0.5);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.25);
+        }
+
+        .social-card:hover::before {
+            opacity: 1;
+        }
+
+        .social-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .social-card:hover .social-icon {
+            transform: scale(1.2);
+        }
+
+        .social-name {
+            font-size: 12px;
+            font-weight: 600;
+            color: #fff;
+            line-height: 1.2;
+            position: relative;
+            z-index: 1;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Platform Specific Colors */
+        .social-card.facebook .social-icon { 
+            color: #1877F2;
+            text-shadow: 0 2px 5px rgba(24, 119, 242, 0.3);
+        }
+        .social-card.instagram .social-icon { 
+            color: #E1306C;
+            text-shadow: 0 2px 5px rgba(225, 48, 108, 0.3);
+        }
+        .social-card.youtube .social-icon { 
+            color: #FF0000;
+            text-shadow: 0 2px 5px rgba(255, 0, 0, 0.3);
+        }
+        .social-card.whatsapp .social-icon { 
+            color: #25D366;
+            text-shadow: 0 2px 5px rgba(37, 211, 102, 0.3);
+        }
+        .social-card.google .social-icon { 
+            color: #4285F4;
+            text-shadow: 0 2px 5px rgba(66, 133, 244, 0.3);
+        }
+        .social-card.phone .social-icon { 
+            color: #34B7F1;
+            text-shadow: 0 2px 5px rgba(52, 183, 241, 0.3);
+        }
+        .social-card.email .social-icon { 
+            color: #EA4335;
+            text-shadow: 0 2px 5px rgba(234, 67, 53, 0.3);
+        }
+        .social-card.map .social-icon { 
+            color: #d4af37;
+            text-shadow: 0 2px 5px rgba(212, 175, 55, 0.3);
+        }
+        .social-card.website .social-icon { 
+            color: #d4af37;
+            text-shadow: 0 2px 5px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            padding: 15px;
+            text-align: center;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            border-top: 2px solid rgba(212, 175, 55, 0.3);
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+        }
+
+        .footer-text {
+            font-size: 12px;
+            color: #aaa;
+            margin-bottom: 8px;
+        }
+
+        .all-platforms-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #d4af37, #a67c00);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            margin-top: 5px;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .all-platforms-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Diamond Pattern Background */
+        .diamond-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(212, 175, 55, 0.05) 2px, transparent 2px),
+                radial-gradient(circle at 75% 75%, rgba(212, 175, 55, 0.05) 2px, transparent 2px);
+            background-size: 30px 30px;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        /* Custom Scrollbar */
+        .social-section::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .social-section::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .social-section::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #d4af37, #a67c00);
+            border-radius: 10px;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-height: 700px) {
+            .header-section {
+                padding: 15px 15px 12px;
+            }
+            
+            .logo-img-placeholder {
+                width: 180px;
+                height: 70px;
+                font-size: 18px;
+            }
+            
+            .social-grid {
+                gap: 12px;
+            }
+            
+            .social-card {
+                padding: 15px 8px;
+                min-height: 100px;
+            }
+            
+            .social-icon {
+                font-size: 28px;
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (max-height: 600px) {
+            .social-title {
+                font-size: 20px;
+                margin-bottom: 20px;
+            }
+            
+            .social-card {
+                min-height: 90px;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .loading.show {
+            display: flex;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(212, 175, 55, 0.3);
+            border-top-color: #d4af37;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 15px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            color: #d4af37;
+            font-size: 16px;
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Shri Murari Jewellers</div>
+    </div>
+
+    <!-- Diamond Pattern -->
+    <div class="diamond-pattern"></div>
+
+    <!-- Header Section -->
+    <section class="header-section">
+        <div class="logo-container">
+            <div class="logo-img-placeholder">
+                SRI MURARI<br>JEWELLERS PVT.LTD.
+            </div>
+        </div>
+        
+        <div class="tagline">Exquisite Jewellery Since 1985</div>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-phone-alt"></i>
+                <a href="tel:8344444237" class="contact-link">8344444237</a>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:shrimurarijewellerspvtltd@gmail.com" class="contact-link">Email Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Grid -->
+    <section class="social-section">
+        <h2 class="social-title">Connect With Us</h2>
+        
+        <div class="social-grid">
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/ShriMurariJewellers" target="_blank" class="social-card facebook">
+                <div class="social-icon">
+                    <i class="fab fa-facebook-f"></i>
+                </div>
+                <div class="social-name">Facebook</div>
+            </a>
+            
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/shrimurarijewellerspvtltd/" target="_blank" class="social-card instagram">
+                <div class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                </div>
+                <div class="social-name">Instagram</div>
+            </a>
+            
+            <!-- YouTube -->
+            <a href="https://www.youtube.com/@ShrimurarijewellersPVTLTD" target="_blank" class="social-card youtube">
+                <div class="social-icon">
+                    <i class="fab fa-youtube"></i>
+                </div>
+                <div class="social-name">YouTube</div>
+            </a>
+            
+            <!-- WhatsApp -->
+            <a href="https://whatsapp.com/channel/0029VbBh4dRFCCoSecQPgz0y" target="_blank" class="social-card whatsapp">
+                <div class="social-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <div class="social-name">WhatsApp</div>
+            </a>
+            
+            <!-- Google Reviews -->
+            <a href="https://g.page/r/CbtKV2PZG1JWEBM/review" target="_blank" class="social-card google">
+                <div class="social-icon">
+                    <i class="fab fa-google"></i>
+                </div>
+                <div class="social-name">Reviews</div>
+            </a>
+            
+            <!-- Phone -->
+            <a href="tel:8344444237" class="social-card phone">
+                <div class="social-icon">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="social-name">Call Now</div>
+            </a>
+            
+            <!-- Email -->
+            <a href="mailto:shrimurarijewellerspvtltd@gmail.com" class="social-card email">
+                <div class="social-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="social-name">Email</div>
+            </a>
+            
+            <!-- Map -->
+            <a href="https://maps.google.com/?q=Shri+Murari+Jewellers" target="_blank" class="social-card map">
+                <div class="social-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="social-name">Location</div>
+            </a>
+            
+            <!-- Website -->
+            <a href="#" class="social-card website" onclick="event.preventDefault(); showWebsiteAlert();">
+                <div class="social-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <div class="social-name">Website</div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p class="footer-text">© 2023 Shri Murari Jewellers Pvt Ltd | All Rights Reserved</p>
+        <a href="#" class="all-platforms-btn" onclick="showAllLinks(); return false;">All Social Links</a>
+    </footer>
+
+    <script>
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', function() {
+            const loading = document.getElementById('loading');
+            
+            // Show loading for 1 second
+            loading.classList.add('show');
+            
+            setTimeout(() => {
+                loading.classList.remove('show');
+            }, 1000);
+            
+            // Social media card click tracking
+            const socialCards = document.querySelectorAll('.social-card');
+            socialCards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    // Get platform name
+                    const platform = this.classList[1];
+                    console.log(`Clicked on ${platform}`);
+                    
+                    // Vibrate on mobile devices if supported
+                    if (navigator.vibrate) {
+                        navigator.vibrate(30);
+                    }
+                    
+                    // For website card, prevent default and show alert
+                    if (platform === 'website') {
+                        e.preventDefault();
+                        showWebsiteAlert();
+                    }
+                });
+            });
+            
+            // Prevent body scrolling (allow only social section scrolling)
+            document.body.addEventListener('touchmove', function(e) {
+                if (e.target.classList.contains('social-section') || 
+                    e.target.closest('.social-section')) {
+                    return;
+                }
+                e.preventDefault();
+            }, { passive: false });
+            
+            // Handle orientation change
+            window.addEventListener('orientationchange', function() {
+                // Brief delay to allow orientation to complete
+                setTimeout(() => {
+                    window.scrollTo(0, 0);
+                }, 100);
+            });
+        });
+        
+        // Function to show website alert
+        function showWebsiteAlert() {
+            alert("✨ Website coming soon! ✨\n\nFor now, please connect with us through our social media channels or visit our store.");
+        }
+        
+        // Function to show all links in an alert
+        function showAllLinks() {
+            const links = [
+                "📘 Facebook:\nhttps://www.facebook.com/ShriMurariJewellers",
+                "📸 Instagram:\nhttps://www.instagram.com/shrimurarijewellerspvtltd/",
+                "▶️ YouTube:\nhttps://www.youtube.com/@ShrimurarijewellersPVTLTD",
+                "💬 WhatsApp Channel:\nhttps://whatsapp.com/channel/0029VbBh4dRFCCoSecQPgz0y",
+                "⭐ Google Reviews:\nhttps://g.page/r/CbtKV2PZG1JWEBM/review",
+                "📞 Phone:\n8344444237",
+                "📧 Email:\nshrimurarijewellerspvtltd@gmail.com",
+                "📍 Location:\nSearch 'Shri Murari Jewellers' on Google Maps"
+            ];
+            
+            alert("📱 All Social Links:\n\n" + links.join("\n\n") + "\n\n💎 Thank you for connecting with us!");
+        }
+        
+        // Initial fade in
+        window.onload = function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease-in';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        };
+    </script>
+</body>
+</html>
